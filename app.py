@@ -5,6 +5,16 @@ import calendar
 
 # ─── STREAMLIT CONFIGURATION ──────────────────────────────────────────────
 st.set_page_config(page_title="Smart Calculator", page_icon="🔢", layout="centered")
+st.markdown("""
+    <style>
+    /* Force Streamlit columns to stay side-by-side on mobile */
+    @media (max-width: 768px) {
+        div[data-testid="stHorizontalBlock"] {
+            flex-wrap: nowrap !important;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # ─── STATE INITIALIZATION (The App's "Memory") ────────────────────────────
 if 'expression' not in st.session_state: st.session_state.expression = ""
